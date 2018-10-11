@@ -53,8 +53,10 @@
 		$telInput.on('blur', function(){
       if( $telInput.intlTelInput("isValidNumber") ){
         $telInput.intlTelInput("setNumber", $telInput.intlTelInput( 'getNumber' ) );
+        $telInput.prev('input[type="hidden"]').val($telInput.intlTelInput('getNumber'));
       } else { // Clear input if number is not valid
         $telInput.val('');
+        $telInput.prev('input[type="hidden"]').val('');
       }
     })
 		// Initialize Input	
@@ -79,5 +81,12 @@
 		acf.add_action('append_field/type=intl_tel_input', initialize_field);
 	
 	}
+
+    /**
+     * Apply the initialize_fields in Frontend acf_form
+     */
+    $('[data-type="intl_tel_input"]').each(function () {
+        initialize_field($(this));
+    });
 	
 })(jQuery);
