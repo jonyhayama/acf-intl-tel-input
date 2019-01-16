@@ -201,7 +201,7 @@ class jony_acf_field_intl_tel_input extends acf_field {
 		}
 		$attr = implode( ' ', $attr );
 		
-		?><input type="tel" value="<?php echo esc_attr($field['value']) ?>" <?php echo $attr; ?>><?php
+                ?><input type="tel" value="<?php echo esc_attr($field['value']) ?>" <?php echo $attr; ?> <?php echo $field['required'] ? 'required="required"' : ''; ?>><?php
 	}
 	
 		
