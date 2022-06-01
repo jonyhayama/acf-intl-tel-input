@@ -17,6 +17,8 @@
 	function initialize_field( $field ) {
 		// get input field
 		var $telInput = $field.find('input');
+		if ( $telInput.attr('type') != 'tel' )
+			return false;
 		// set telInput options
 		var $telInputOptions = {
        autoPlaceholder: "aggressive",
